@@ -1,0 +1,14 @@
+{
+  "name": "hack-uci-backend",
+  "version": "1.0.0",
+  "description": "Backend server for HackUCI web app written in Express.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryan Yang",
+  "license": "Unlicense",
+  "devDependencies": {
+    "express.js": "^1.0.0"
+  }
+}
