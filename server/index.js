@@ -3,22 +3,6 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-const LA_WOEID = 2442047;
-let appData = {
-    weather: {
-        temp: 'N/A'
-    }
-}
-function init(){
-    getWeather();
-}
-function getWeather(){
-    request('https://www.metaweather.com/api/location/' + LA_WOEID, function (error, response, body) {
-        appData.weather.temp = body['consolidated_weather'][0]['the_temp'];
-    });
-}
-init();
-
 
 app.all('/*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -27,11 +11,23 @@ app.all('/*', function(req, res, next) {
 });
 
 app.get('/', (req, res) =>{
-    res.send("Yes");
+    res.send("Hello!");
+});
+app.get('/users', (req, res) =>{
+    getUsers(res);
 });
 
-app.get('/weather', (req, res) =>{
-    res.send({data: "too cold"});
-});
+/**
+ * @function getUsers - simulates a backend calling a database to get list of
+ * users which then gets returned to the frontend that calls through the default
+ * route
+ * @param {@} res 
+ */
+function getUsers(res){
+    request('https://n161.tech/api/dummyapi/user', function (error, response, body) {
+        res.send(body);
+    });
+}
+
 
 app.listen( port, () => console.log(`Backend server listening on port ${port}!`) );

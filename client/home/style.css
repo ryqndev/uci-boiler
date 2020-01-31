@@ -1,3 +1,20 @@
 button{
+    display: block;
+    margin: 0 auto;
+    height: 150px;
+    width: 150px;
+    border-radius: 75px;
+    background-color: #272727;
     margin: 50px auto;
+}
+
+#user-holder{
+    display: grid;
+    margin: 0 auto;
+    width: 470px;
+    column-gap: 20px;
+    grid-template-columns: repeat(3, 150px);
+}
+#user-holder > div{
+    /* margin: auto; */
 }
